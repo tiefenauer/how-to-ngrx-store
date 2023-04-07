@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Buy groceries",
+      "description": "Apples, Bread, Milk and Butter",
+      "favorite": false
+    },
+    {
+      "id": 2,
+      "title": "Visit grandma",
+      "description": "Make sure our inheritance is still intact",
+      "favorite": false
+    },
+    {
+      "id": 3,
+      "title": "See your GP",
+      "description": "Tell her about that lower back pain",
+      "favorite": false
+    },
+    {
+      "id": 4,
+      "title": "Learn NgRx Store",
+      "description": "See https://ngrx.io/",
+      "favorite": false
+    }
+  ]
+}
