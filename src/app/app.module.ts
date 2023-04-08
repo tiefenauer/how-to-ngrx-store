@@ -7,7 +7,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {TodoComponent} from './components/todo/todo/todo.component';
 import {TodoListComponent} from './components/todo/todo-list/todo-list/todo-list.component';
 import {HttpClientModule} from "@angular/common/http";
-import {todoReducer} from "./store/todo/todo.reducer";
+import {TODO_FEATURE_NAME, todoReducer} from "./store/todo/todo.reducer";
 import {TodoEffects} from "./store/todo/todo.effects";
 
 @NgModule({
@@ -19,7 +19,7 @@ import {TodoEffects} from "./store/todo/todo.effects";
   imports: [
     BrowserModule,
     StoreModule.forRoot({
-      todo: todoReducer,
+      [TODO_FEATURE_NAME]: todoReducer,
       // add more reducers here
     }),
     EffectsModule.forRoot([TodoEffects]),
