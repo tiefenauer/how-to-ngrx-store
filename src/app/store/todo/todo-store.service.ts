@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {loadTodos, selectTodo, toggleFavorite, unselectTodo} from "./todo.action";
-import {selectIsLoading, selectSelectedTodo, selectTodos} from "./todo.selectors";
 import {Todo} from "../../components/todo/todo-list/todo";
 import {Observable} from "rxjs";
+import {selectIsLoading, selectSelectedTodo, selectTodos} from "./todo.selectors";
 
 @Injectable({
   providedIn: 'root'
