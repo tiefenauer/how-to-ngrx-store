@@ -1,2 +1,6 @@
 <div>Todos:</div>
 <app-todo-list></app-todo-list>
+
+<div *ngIf="hasSelectedTodo">
+  <app-todo [todo]="selectedTodo$ | async"></app-todo>
+</div>

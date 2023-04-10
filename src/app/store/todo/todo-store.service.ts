@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {select, Store} from "@ngrx/store";
-import {loadTodos} from "./todo.action";
-import {selectIsLoading, selectTodos} from "./todo.selectors";
-import {Todo} from "../../components/todo/todo/todo";
+import {loadTodos, selectTodo, unselectTodo} from "./todo.action";
+import {selectIsLoading, selectSelectedTodo, selectTodos} from "./todo.selectors";
+import {Todo} from "../../components/todo/todo-list/todo-list-item/todo";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -17,11 +17,23 @@ export class TodoStoreService {
     this.store$.dispatch(loadTodos())
   }
 
+  isLoading(): Observable<Boolean> {
+    return this.store$.pipe(select(selectIsLoading))
+  }
+
   getTodos(): Observable<Todo[]> {
     return this.store$.pipe(select(selectTodos))
   }
 
-  isLoading(): Observable<Boolean> {
-    return this.store$.pipe(select(selectIsLoading))
+  getSelectedTodo(): Observable<Todo> {
+    return this.store$.pipe(select(selectSelectedTodo))
+  }
+
+  selectTodo(id: number): void {
+    return this.store$.dispatch(selectTodo({id}))
+  }
+
+  unselectTodo(id: number): void {
+    return this.store$.dispatch(unselectTodo({id}))
   }
 }
