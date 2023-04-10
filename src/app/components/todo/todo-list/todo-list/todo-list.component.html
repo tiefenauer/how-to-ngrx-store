@@ -1,7 +1,13 @@
-<div *ngIf="!(isLoading$ | async)">
-  <app-todo-list-item *ngFor="let todo of todos$ | async"
-            [todo]="todo"
-  ></app-todo-list-item>
+<div class="card" style="width: 18rem;" *ngIf="!(isLoading$ | async)">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"
+        *ngFor="let todo of todos$ | async"
+        (click)="selectTodo(todo)"
+    >
+      {{todo.title}}
+      <i class="bi" [ngClass]="{'bi-star': !todo.favorite, 'bi-star-fill': todo.favorite}" (click)="toggleFavorite(todo)"></i>
+    </li>
+  </ul>
 </div>
 
 <div *ngIf="(isLoading$ | async)">

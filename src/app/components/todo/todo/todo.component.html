@@ -1,2 +1,10 @@
-<div>{{todo.title}}</div>
-<div>{{todo.description}}</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    {{todo.title}}
+    <i class="bi" [ngClass]="{'bi-star': !todo.favorite, 'bi-star-fill': todo.favorite}" (click)="toggleFavorite()"></i>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{todo.description}}</p>
+    <a href="#" class="btn btn-primary" (click)="closeTodo()">Close</a>
+  </div>
+</div>
